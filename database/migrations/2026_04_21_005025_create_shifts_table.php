@@ -9,7 +9,7 @@ return new class extends Migration {
     public function up(): void {
         Schema::create('shifts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable(); // For relating an assigned shift to a specific employee
+            $table->foreignId('user_id')->constrained()->nullable(); // For relating an assigned shift to a specific employee
             $table->date('start_date');
             $table->time('start_time');
             $table->date('end_date'); // For when a shift is an overnight shift and ends on next day, if applicable
