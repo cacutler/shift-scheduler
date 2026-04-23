@@ -8,6 +8,8 @@ class Shift extends Model {
     use HasFactory;
     protected function casts(): array {
         return [
+            //'start_time' => 'datetime:H:i:s', //For Carbon support
+            //'end_time'   => 'datetime:H:i:s', //For Carbon support
             'start_date' => 'date',
             'end_date' => 'date'
         ];
