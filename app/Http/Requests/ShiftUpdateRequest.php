@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Requests;
+use App\Concerns\ShiftValidationRules;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 class ShiftUpdateRequest extends FormRequest {
