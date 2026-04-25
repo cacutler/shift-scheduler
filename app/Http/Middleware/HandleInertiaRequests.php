@@ -2,6 +2,7 @@
 namespace App\Http\Middleware;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use Tighten\Ziggy\Ziggy;
 class HandleInertiaRequests extends Middleware {
     /**
      * The root template that's loaded on the first page visit.
@@ -16,7 +17,6 @@ class HandleInertiaRequests extends Middleware {
     public function version(Request $request): ?string {
         return parent::version($request);
     }
-
     /**
      * Define the props that are shared by default.
      * @see https://inertiajs.com/shared-data
@@ -26,9 +26,8 @@ class HandleInertiaRequests extends Middleware {
         return [
             ...parent::share($request),
             'name' => config('app.name'),
-            'auth' => [
-                'user' => $request->user()
-            ],
+            'auth' => ['user' => $request->user()],
+            'ziggy' => fn () => [...app(Ziggy::class)->toArray(), 'location' => $request->url()],
             'sidebarOpen' => ! $request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true'
         ];
     }
