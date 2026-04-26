@@ -7,6 +7,7 @@ This is a shift scheduling tool for businesses to use for assigning shifts to em
 - Managers can create new shifts and assign available shifts to employees, other managers, and self-assign their own shifts.
 - Employees can self-assign available shifts and unassign currently assigned shifts (possible additional feature would be to add an approval system for managers to use for employees needing to unassign shifts).
 - Managers can also delete extra shifts and assign other managers.
+- Everyone can manage their own profile and managers can edit needed information on everyone's profile (new feature).
 
 ## REST Endpoints
 
